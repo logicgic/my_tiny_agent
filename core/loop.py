@@ -117,6 +117,10 @@ class AgentLoop:
                                     tool_call_buffer[idx]["function"]["name"] += tc.function.name
                                 if tc.function.arguments:
                                     tool_call_buffer[idx]["function"]["arguments"] += tc.function.arguments
+                #情况3：对thinking mode / reasoning mode”的内部推理内容的处理，在下一次请求里没有把这段内容原样回传
+                # if delta.reasoning_content:
+                #     assistant_msg["reasoning_content"] = delta.reasoning_content
+                #     yield {"type": "reasoning_content", "content": delta.reasoning_content}
 
             # 情况 1: 装配好了 tool_calls
             if tool_call_buffer:

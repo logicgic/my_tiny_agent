@@ -153,6 +153,7 @@ class ContextBuilder:
         self,
         messages: List[Dict[str, Any]],
         content: Optional[str],
+        #添加可选参数reasoning_content
         tool_calls: Optional[List[Dict[str, Any]]] = None,
     ) -> List[Dict[str, Any]]:
         """
